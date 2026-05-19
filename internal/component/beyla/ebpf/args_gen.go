@@ -197,11 +197,6 @@ type Injector struct {
 	OTELEndpoint      string              `alloy:"otel_endpoint,attr,optional"`
 }
 
-type InternalMetrics struct {
-	BpfMetricScrapeInterval time.Duration `alloy:"bpf_metric_scrape_interval,attr,optional"`
-	Exporter                string        `alloy:"exporter,attr,optional"`
-}
-
 type Routes struct {
 	IgnoredEvents             string   `alloy:"ignore_mode,attr,optional"`
 	IgnorePatterns            []string `alloy:"ignored_patterns,attr,optional"`

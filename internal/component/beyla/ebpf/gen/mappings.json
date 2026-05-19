@@ -17,8 +17,7 @@
   "skip": [
     "injector.resources.addK8sUIDAttributes",
     "injector.resources.resourceAttributes",
-    "injector.resources.useLabelsForResourceAttributes",
-    "internal_metrics.prometheus"
+    "injector.resources.useLabelsForResourceAttributes"
   ],
 
   "aliases": {
@@ -79,5 +78,5 @@
     }
   ],
 
-  "manual_sections": ["traces", "attributes", "filter"]
+  "manual_sections": ["traces", "attributes", "filter", "internal_metrics"]
 }

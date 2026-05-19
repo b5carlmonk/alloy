@@ -464,20 +464,6 @@ func (c *Component) addInjectorConfig(config map[string]interface{}) {
 	}
 }
 
-// addInternalMetricsConfig adds internal_metrics configuration.
-func (c *Component) addInternalMetricsConfig(config map[string]interface{}) {
-	m := make(map[string]interface{})
-	if v := c.args.InternalMetrics.BpfMetricScrapeInterval; v != 0 {
-		m["bpf_metric_scrape_interval"] = v.String()
-	}
-	if v := c.args.InternalMetrics.Exporter; v != "" {
-		m["exporter"] = v
-	}
-	if len(m) > 0 {
-		config["internal_metrics"] = m
-	}
-}
-
 // addRoutesConfig adds routes configuration.
 func (c *Component) addRoutesConfig(config map[string]interface{}) {
 	m := make(map[string]interface{})

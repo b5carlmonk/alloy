@@ -89,6 +89,32 @@ func (c *Component) addPrometheusConfig(config map[string]interface{}) {
 	config["prometheus_export"] = prometheus
 }
 
+func (c *Component) addInternalMetricsConfig(config map[string]interface{}) {
+	m := make(map[string]interface{})
+
+	if v := c.args.InternalMetrics.BpfMetricScrapeInterval; v != 0 {
+		m["bpf_metric_scrape_interval"] = v.String()
+	}
+	if v := c.args.InternalMetrics.Exporter; v != "" {
+		m["exporter"] = v
+	}
+
+	if c.args.InternalMetrics.Exporter == "prometheus" {
+		c.mut.Lock()
+		port := c.subprocessPort
+		c.mut.Unlock()
+
+		m["prometheus"] = map[string]interface{}{
+			"port": port,
+			"path": "/metrics",
+		}
+	}
+
+	if len(m) > 0 {
+		config["internal_metrics"] = m
+	}
+}
+
 func (c *Component) addAttributesConfig(config map[string]interface{}) {
 	if c.args.Attributes.Kubernetes.Enable == "" && c.args.Attributes.InstanceID.OverrideHostname == "" && len(c.args.Attributes.Select) == 0 {
 		return

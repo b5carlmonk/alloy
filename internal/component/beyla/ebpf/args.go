@@ -126,6 +126,11 @@ type Network struct {
 	DeduperFCTTL       time.Duration `alloy:"deduper_fc_ttl,attr,optional"`
 }
 
+type InternalMetrics struct {
+	BpfMetricScrapeInterval time.Duration `alloy:"bpf_metric_scrape_interval,attr,optional"`
+	Exporter                string        `alloy:"exporter,attr,optional"`
+}
+
 type OpenAIPayloadExtraction struct {
 	Enabled bool `alloy:"enabled,attr,optional"`
 }

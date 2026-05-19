@@ -123,7 +123,6 @@ Schema fields suppressed from TODO generation. Each is handled manually with a d
 | `injector.resources.addK8sUIDAttributes` | `addK8sUIDAttributes` has no direct alloy mapping; handled by hand-written code |
 | `injector.resources.resourceAttributes` | `resourceAttributes` has no direct alloy mapping; handled by hand-written code |
 | `injector.resources.useLabelsForResourceAttributes` | `useLabelsForResourceAttributes` has no direct alloy mapping; handled by hand-written code |
-| `internal_metrics.prometheus` | `prometheus` has no direct alloy mapping; handled by hand-written code |
 
 ## manual_sections
 
@@ -132,6 +131,7 @@ Top-level YAML sections absent from `schema.json`; config emission is hand-writt
 - `traces`
 - `attributes`
 - `filter`
+- `internal_metrics`
 
 ## multi_section
 
